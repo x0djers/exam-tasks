@@ -64,10 +64,10 @@ void swap(int* const a, int* const b) {
     *b = temp;
 }
 
-void bubbleSort(int *arr, int size) {
+void reversedBbubbleSort(int *arr, int size) {
     for (int iter=0; iter < size - 1; iter++) {
         for (int cur = 0; cur < size - iter - 1; cur++) {
-            if (*(arr + cur) > *(arr + cur + 1))
+            if (*(arr + cur) < *(arr + cur + 1))
                 swap(arr + cur, arr + cur + 1);
         }
     }
@@ -86,7 +86,7 @@ int main() {
         int *resultArray;
         if (lastIndexOfX != -1) {
             getSlice(0, lastIndexOfX, inputArray, &resultArray);
-            bubbleSort(resultArray, lastIndexOfX + 1);
+            reversedBbubbleSort(resultArray, lastIndexOfX + 1);
             printResult(resultArray, lastIndexOfX + 1);
             free(resultArray);
         } else {
