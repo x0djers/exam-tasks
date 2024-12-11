@@ -5,7 +5,6 @@
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 #define MAX_ELEMENTS_COUNT 1000
 
@@ -43,12 +42,13 @@ int findMaxIndexOfArr(int *arr, int size) {
     return maxIndex;
 }
 
-void getSlice(int startIndex, int endIndex, int *arrIn, int **arrOut) {
-    
-    int arrSize = endIndex - startIndex + 1;
-    *arrOut = (int *)malloc(sizeof(int) * arrSize);
-    for (int iter = startIndex; iter <= endIndex; iter++) {
-        (*arrOut)[iter - startIndex] = arrIn[iter];
+void getSlice(int startPassIndex, int endPassIndex, int *arrIn, int arrInSize, int *arrOut, int arrOutSize) {
+    int insertionIndex = 0;
+
+    for (int iter = 0; iter < arrInSize; iter++) {
+        if (iter < startPassIndex || iter > endPassIndex) {
+            arrOut[insertionIndex++] = arrIn[iter];
+        }
     }
 }
 
@@ -66,10 +66,10 @@ void swap(int* const a, int* const b) {
     *b = temp;
 }
 
-void bubbleSort(int *arr, int size) {
+void reversedBubbleSort(int *arr, int size) {
     for (int iter=0; iter < size - 1; iter++) {
         for (int cur = 0; cur < size - iter - 1; cur++) {
-            if (*(arr + cur) > *(arr + cur + 1))
+            if (*(arr + cur) < *(arr + cur + 1))
                 swap(arr + cur, arr + cur + 1);
         }
     }
@@ -85,17 +85,18 @@ int main() {
         
         int minIndex = findMinIndexOfArr(inputArray, elemCount);
         int maxIndex = findMaxIndexOfArr(inputArray, elemCount);
-        
-        int *resultArray;
-        
-        int arraySize = maxIndex - minIndex + 1;
-        printf("arraySize: %d\n", arraySize);
 
-        getSlice(minIndex, maxIndex, inputArray, &resultArray);
-        bubbleSort(resultArray, arraySize);
-        printResult(resultArray, arraySize);
+        if (minIndex > maxIndex){
+            swap(&minIndex, &maxIndex);
+        }
+                
+        int outArraySize = elemCount - (maxIndex - minIndex + 1);
+        
+        int resultArray[outArraySize];
 
-        free(resultArray);
+        getSlice(minIndex, maxIndex, inputArray, elemCount, resultArray, outArraySize);
+        reversedBubbleSort(resultArray, outArraySize);
+        printResult(resultArray, outArraySize);
 
     } else {
         printf("Некоректное число элементов последовательности!");
