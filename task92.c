@@ -3,8 +3,8 @@
     расстояний до начала координат.
 */
 
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 int getDimension() {
     int dimension = 0;
@@ -23,7 +23,7 @@ int getCountOfPoints() {
 double calculateDistance(double *arrOfCoords, int n) {
     double distance = 0;
     for (int iter = 0; iter < n; iter++) {
-        distance += pow(arrOfCoords[iter], 2);
+        distance += arrOfCoords[iter] * arrOfCoords[iter];
     }
     return sqrt(distance);
 }

@@ -27,7 +27,7 @@ double getSideLength(double *x1, double *y1, double *x2, double *y2) {
 
     double diffX = abs(*x2 - *x1);
     double diffY = abs(*y2 - *y1);
-    return sqrt(pow(diffX, 2) + pow(diffY, 2));
+    return sqrt(diffX * diffX + diffY * diffY);
 }
 
 void getTriangleType(double *x1, double *y1, double *x2, double *y2, double *x3, double *y3, char *str) {
