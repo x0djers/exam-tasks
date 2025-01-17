@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 #define LENGTH_LESS_THEN_ZERO   "Введённая длина массива меньше 0"
-#define NO_NEGATIVES_NUMBERS    "В ведённом массиве нету отрицательных чисел"
+#define NO_NEGATIVES_NUMBERS    "В ведённом массиве нету чётных чисел"
 
 int getSeqLength() {
     int len = -1;
