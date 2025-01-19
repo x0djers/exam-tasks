@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.30)
+project(exam_tasks C)
+
+set(CMAKE_C_STANDARD 99)
+
+add_executable(task2 tasks/task2.c)
+add_executable(task3 tasks/task3.c)
+add_executable(task5 tasks/task5.c)
+add_executable(task6 tasks/task6.c)
+add_executable(task8 tasks/task8.c)
+add_executable(task17 tasks/task17.c)
+add_executable(task23 tasks/task23.c)
+add_executable(task26 tasks/task26.c)
+add_executable(task30 tasks/task30.c)
+add_executable(task36 tasks/task36.c)
+add_executable(task40 tasks/task40.c)
+add_executable(task44 tasks/task44.c)
+add_executable(task50 tasks/task50.c)
+add_executable(task78 tasks/task78.c)
+add_executable(task80 tasks/task80.c)
+add_executable(task92 tasks/task92.c)
+add_executable(task101 tasks/task101.c)
+
