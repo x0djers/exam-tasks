@@ -18,6 +18,7 @@ add_executable(task44 tasks/task44.c)
 add_executable(task50 tasks/task50.c)
 add_executable(task78 tasks/task78.c)
 add_executable(task80 tasks/task80.c)
+add_executable(task86 tasks/task86.c)
 add_executable(task92 tasks/task92.c)
 add_executable(task101 tasks/task101.c)
 
